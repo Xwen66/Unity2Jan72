@@ -21,7 +21,6 @@ public class Controller : MonoBehaviour
     protected virtual void OnValidate()
     {
         Movement = GetComponent<CustomerCharacterMovement>();
-
     }
     private void FindWeapons()
     {
