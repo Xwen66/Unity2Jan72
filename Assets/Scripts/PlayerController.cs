@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(PlayerInput))]
 
@@ -7,10 +8,20 @@ public class PlayerController : Controller
 {
     //layerMask is used to filter Raycast checks
     [SerializeField] private LayerMask _groundMask;
+    [SerializeField] private float _sprintMultipler= 2;
+    [SerializeField] private float _dashDistance = 10;
+    Ray mouseRay;
+    Rigidbody _rb;
     private Vector2 _moveInput2D;
     private Vector3 _aimPosition;
 
+    RaycastHit hitInfo;
     //called by PlayerInput component, InputValue contains input type configured in InputActions
+
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
     public void OnMove(InputValue inputValue)
     {
         // Get<> reads input types from player input
@@ -25,21 +36,43 @@ public class PlayerController : Controller
     }
     public void OnTeleport()
     {
-        Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hitInfo;
+        mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(mouseRay, out hitInfo, Mathf.Infinity, _groundMask))
         {
             Vector3 teleportLocation = hitInfo.point;
             Movement.Teleport(teleportLocation);
         }
     }
-    
+
+    public void OnSprint(InputValue inputValue)
+    {
+        if(inputValue.isPressed)
+        {
+            Movement.MoveSpeedMultiplier = _sprintMultipler;
+            return;
+        }
+        Movement.MoveSpeedMultiplier = 1;
+    }
     public void OnShoot()
     {
         //assume shootgun is weapon 0
         Weapon shotgun = Weapons[0];
         shotgun.TryAttack(_aimPosition, gameObject, 0);
     }
+
+    public void OnDash()
+    {
+        Debug.Log("ondash");
+        mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(mouseRay, out hitInfo, Mathf.Infinity, _groundMask))
+        {
+            Vector3 dashDirection = ( hitInfo.point -transform.position).normalized;  
+            dashDirection.y = 0; 
+            _rb.linearVelocity = dashDirection * _dashDistance;
+        }
+    }
+
+
     private void Update()
     {
         //map 2D input to 3D world space direction 
@@ -66,9 +99,6 @@ public class PlayerController : Controller
 
             _aimPosition = hitInfo.point + new Vector3(0f, 1f, 0f);
         }
-
-
-
 
     }
 }

@@ -7,7 +7,7 @@ using System;
 [RequireComponent(typeof(CapsuleCollider))]
 
 
-public abstract class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
     private Vector3 _spawnPosition;

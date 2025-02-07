@@ -13,7 +13,7 @@ public class WeaponRangedProjectile : Weapon
         base.Attack(aimPostion, instigator, team);
 
         Debug.DrawLine(_muzzle.position, aimPostion, Color.red, 1f);
-
+       
         Vector3 spawnPos = _muzzle.position;                      
         Vector3 aimDir = (aimPostion - spawnPos).normalized;
         Quaternion spawnRot = Quaternion.LookRotation(aimDir); //lookrotation() turns a direction into a rotation

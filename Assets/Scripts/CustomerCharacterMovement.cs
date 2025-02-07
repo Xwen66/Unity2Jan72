@@ -3,13 +3,13 @@ using CharacterMovement;
 using UnityEngine.UIElements;
 public class CustomerCharacterMovement : CharacterMovement3D
 {
-    private int _canJumpRemain;
+    private int _jumpCounter;
 
-    [field: SerializeField] public int CanJumpTime { get; set; } = 2;
+    [field: SerializeField] public int TotalJump { get; set; } = 2;
 
     private void Start()
     {
-        _canJumpRemain = CanJumpTime;
+        _jumpCounter = TotalJump;
     }
 
     public void Teleport(Vector3 location)
@@ -21,16 +21,24 @@ public class CustomerCharacterMovement : CharacterMovement3D
 
     public override void TryJump()
     {
-        if (CanJumpTime <= 0) return;
+        if (_jumpCounter > TotalJump) return;
         if (base.CanMove && base.CanCoyoteJump)
         {
             Jump();
-            _canJumpRemain -= 1;
+            
         }
     }
-
-    protected override bool CheckGrounded()
+  
+    public override void Jump()
     {
+        // calculate jump velocity from jump height and gravity
+        float jumpVelocity = Mathf.Sqrt(2f * -Gravity * JumpHeight);
+        // override current y velocity but maintain x/z velocity
+        Velocity = new Vector3(Velocity.x, jumpVelocity, Velocity.z);
+        _jumpCounter++;
+    }
+    protected override bool CheckGrounded()
+    {   
         RaycastHit hitInfo;
         bool flag = Physics.Raycast(GroundCheckStart, -base.transform.up, out hitInfo, base.GroundCheckDistance, base.GroundMask);
         base.GroundNormal = Vector3.up;
@@ -55,7 +63,7 @@ public class CustomerCharacterMovement : CharacterMovement3D
             {
                 base.transform.SetParent(base.SurfaceObject.transform);
             }
-            _canJumpRemain = CanJumpTime;
+            _jumpCounter = TotalJump;
             return true;
         }
 

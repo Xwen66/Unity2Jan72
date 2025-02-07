@@ -3,8 +3,10 @@ using UnityEngine;
 public class EnemyController : Controller
 {
     [SerializeField] private Transform _target;
-    [SerializeField] private float _stoppingDistance = 2f;
 
+
+    //auto-use first equipped weapon
+    private Weapon Weapon => Weapons[0];
     private void Start()
     {
         _target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -16,7 +18,7 @@ public class EnemyController : Controller
 
         //distance to gatget 
         float targetDistance = Vector3.Distance(transform.position, _target.position);
-        if(targetDistance > _stoppingDistance)
+        if(targetDistance > Weapon.EffectiveRange)
         {
             Movement.MoveTo(_target.position);
         }
@@ -24,6 +26,7 @@ public class EnemyController : Controller
         {
             Movement.Stop();
             Movement.SetLookPosition(_target.position);
+            Weapon.TryAttack(_target.position, gameObject, 1);
         }
 
 
