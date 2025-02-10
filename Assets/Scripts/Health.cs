@@ -21,7 +21,7 @@ public class Health : MonoBehaviour
         // reduce health + clamp to avoid bad values 
         _current -= damageInfo.Amount;
         _current = Mathf.Clamp(_current, 0f, _max);
-
+         
     }
 
     [Button("Damage Test 10%")]

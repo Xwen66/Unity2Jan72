@@ -281,6 +281,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: c46df601e2e96cb41a417986ba5c8574, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: f3a3429513c968a4ba95dd7724989584, type: 2}
     - target: {fileID: 6315765792793278136, guid: c46df601e2e96cb41a417986ba5c8574, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -352,6 +356,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c46df601e2e96cb41a417986ba5c8574, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6501054876906138849}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c46df601e2e96cb41a417986ba5c8574, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3514837516534925100}
   m_SourcePrefab: {fileID: 100100000, guid: c46df601e2e96cb41a417986ba5c8574, type: 3}
 --- !u!1 &1267814702791575823 stripped
 GameObject:
@@ -442,7 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7753e8d0fe946b48bdbc60f7716824a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Speed>k__BackingField: 5
+  <Speed>k__BackingField: 2
   <Acceleration>k__BackingField: 10
   <TurnSpeed>k__BackingField: 15
   <StoppingDistance>k__BackingField: 0.25
@@ -501,9 +508,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Movement>k__BackingField: {fileID: 4560995429982874366}
+  <Targetable>k__BackingField: {fileID: 6501054876906138849}
+  <Health>k__BackingField: {fileID: 1924769460128708306}
+  <Vision>k__BackingField: {fileID: 3514837516534925100}
   <Weapons>k__BackingField:
   - {fileID: 7242695375778939399}
   _target: {fileID: 0}
+  _waypointReachedDistance: 1
+  _wanderSpeedMultiplier: 0.5
 --- !u!114 &1924769460128708306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,6 +550,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Team>k__BackingField: 1
   <IsTargetable>k__BackingField: 1
+--- !u!114 &3514837516534925100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267814702791575823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4178a06a42f775b438584bf4e5a7bc6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _range: 4
+  _FOV: 140
+  _occlusionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _visibilityMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!4 &1933168412705985461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c46df601e2e96cb41a417986ba5c8574, type: 3}
