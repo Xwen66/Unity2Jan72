@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{63e1047c-ba3e-48be-8828-d6591ba0cea4}">
+		<property name="assetPath">
+			<value>AWDS_SR_Model_700P_338_Close_Single - Trimmed.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>8</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.2999999999999998</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0b99539e-42b5-44a4-a928-7f1f454c2775}</destination>
+		</relationship>
+	</object>
+</objects>

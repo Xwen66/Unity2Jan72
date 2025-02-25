@@ -36,7 +36,7 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "852140f2-7766-474d-8707-702459ba45f3",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "Hold",
                     "initialStateCheck": false
@@ -45,7 +45,7 @@
                     "name": "Crouch",
                     "type": "Button",
                     "id": "27c5f898-bc57-4ee1-8800-db469aca5fe3",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -63,7 +63,7 @@
                     "name": "Previous",
                     "type": "Button",
                     "id": "2776c80d-3c14-4091-8c56-d04ced07a2b0",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -83,13 +83,13 @@
                     "id": "641cd816-40e6-41b4-8c3d-04687c349290",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Press(pressPoint=0.5,behavior=2)",
+                    "interactions": "",
                     "initialStateCheck": false
                 },
                 {
                     "name": "Melee",
                     "type": "Button",
-                    "id": "7b2d9602-b53d-4632-a356-89c2779017cd",
+                    "id": "78a8df6a-7893-4979-b457-228b2366f3a7",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -98,16 +98,16 @@
                 {
                     "name": "Teleport",
                     "type": "Button",
-                    "id": "2524cc11-cd19-4e2a-b2a7-ef476bbe6463",
+                    "id": "d8418285-800e-45b5-bd9e-dc816e22bc81",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Dash",
+                    "name": "Pause",
                     "type": "Button",
-                    "id": "4c7f296f-d0a5-4a07-bfae-4720d7f5b436",
+                    "id": "205c5b5c-128b-4aa3-ae02-2271cf1f4de5",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -372,9 +372,9 @@
                     "name": "",
                     "id": "f2e9ba44-c423-42a7-ad56-f20975884794",
                     "path": "<Keyboard>/leftShift",
-                    "interactions": "Press(behavior=2)",
+                    "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse",
                     "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -502,7 +502,7 @@
                 },
                 {
                     "name": "",
-                    "id": "3b9e7550-97bc-41a6-9116-68d6ae457597",
+                    "id": "9fb3abb6-9e91-4a5f-b6ba-e43f00985752",
                     "path": "<Keyboard>/v",
                     "interactions": "",
                     "processors": "",
@@ -513,23 +513,34 @@
                 },
                 {
                     "name": "",
-                    "id": "f4e87c10-ad22-49e4-a6c4-b9ec62d2d8cd",
-                    "path": "<Keyboard>/t",
+                    "id": "ba1c8f35-2e81-4e3a-876d-ec9e49953b7d",
+                    "path": "<Keyboard>/f1",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Teleport",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "f8e7cfcf-b670-4f39-9afa-4c9f4d126d71",
-                    "path": "<Keyboard>/ctrl",
+                    "id": "32c9dd3a-89a3-4f12-9fd1-86fa63b12ea7",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Dash",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "700883e2-a4b4-48fa-ac24-f7fc104e6269",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -561,7 +572,7 @@
                     "name": "Cancel",
                     "type": "Button",
                     "id": "15cef263-9014-4fd5-94d9-4e4a6234a6ef",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
